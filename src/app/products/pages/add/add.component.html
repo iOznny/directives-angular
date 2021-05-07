@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col">
+        <h1>Agregar Producto</h1>
+        <hr>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <form [formGroup]="form">
+            <div class="form-group mt-2">
+                <label for="">Nombre</label>
+                <input type="text" class="form-control" formControlName="name" placeholder="Nombre(s)">                
+                <small [valid]="inputValid('name')" [message]="text" [color]="color" errorMsg></small>
+            </div>
+
+            <button class="btn btn-primary mt-3" (click)="cambiarNombre()">Cambiar Nombre</button>
+            &nbsp;
+            <button class="btn btn-primary mt-3" (click)="cambiarColor()">Cambiar Color</button>
+        </form>
+    </div>
+</div>
+
+
+<div class="row mt-5">
+    <div class="col">
+        <h5>Form</h5>
+        <pre>Valid: {{ form.valid }}</pre>
+        <pre>Valid: {{ form.value | json }}</pre>
+    </div>
+</div>
+
+
+<div class="row mt-5" *customIf="form.valid">
+    <div class="col">
+        <div class="alert alert-success" role="alert">
+          Good!
+        </div>
+    </div>
+</div>
